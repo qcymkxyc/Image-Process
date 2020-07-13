@@ -120,33 +120,37 @@ def __get_freeman_coordination(
 # ============================================================
 # FreeMan编码
 # ============================================================
-@deprecated(version = "1.0",reason="该函数判断不合理")
-def __is_freeman_coordination_correct(freeman_coordination_list:[(int,int)]) -> bool:
+@deprecated(version="1.0", reason="该函数判断不合理")
+def __is_freeman_coordination_correct(
+        freeman_coordination_list: [(int, int)]) -> bool:
     """验证Freeman链码是否正确
-    
+
     如果下一个点和当前点仅差一个距离（即8个方向），则判定下一个点是正确的，否则判定下一个
     点是错误的
-    
+
     :param freeman_coordination_list: List[(int,int)],得到的Freeman链码的List
     :return: bool,链码是否正确
     """
     for i in range(len(freeman_coordination_list) - 1):
         current_freeman_point = freeman_coordination_list[i]
-        current_point_x,current_point_y = current_freeman_point
+        current_point_x, current_point_y = current_freeman_point
         next_freeman_point = freeman_coordination_list[i + 1]
 
         # 8个方向候选点(包括当前点),如果在候选点中得到超出范围的Freeman坐标点，不影响结果
         candidate_point_list = list()
-        for x_direct_offset in [-1,0,1]:
-            for y_direct_offset in [-1,0,1]:
-                candidate_point_list.append((current_point_x + x_direct_offset,current_point_y + y_direct_offset))
+        for x_direct_offset in [-1, 0, 1]:
+            for y_direct_offset in [-1, 0, 1]:
+                candidate_point_list.append(
+                    (current_point_x + x_direct_offset,
+                     current_point_y + y_direct_offset))
         if next_freeman_point not in candidate_point_list:
-            print(current_freeman_point,next_freeman_point)
+            # print(current_freeman_point, next_freeman_point)
             return False
     return True
 
 
-def __get_freeman_code_by_two_point(point1:(int,int),point2:(int,int),) -> int:
+def __get_freeman_code_by_two_point(
+        point1: (int, int), point2: (int, int),) -> int:
     """给定两个点（Freeman点），返回Freeman编码
 
     :param point1: (int,int),点1
@@ -154,24 +158,23 @@ def __get_freeman_code_by_two_point(point1:(int,int),point2:(int,int),) -> int:
     :return: int， Freeman编码
     """
     freeman_code_dict = {
-        str((1,0)): 0,
-        str((1,1)): 1,
-        str((0,1)): 2,
-        str((-1,1)): 3,
-        str((-1,0)): 4,
-        str((-1,-1)): 5,
-        str((0,-1)) : 6,
-        str((1,-1)) : 7,
+        str((1, 0)): 0,
+        str((1, 1)): 1,
+        str((0, 1)): 2,
+        str((-1, 1)): 3,
+        str((-1, 0)): 4,
+        str((-1, -1)): 5,
+        str((0, -1)): 6,
+        str((1, -1)): 7,
     }
-    point_gap = (point2[0] - point1[0],point2[1] - point1[1])
+    point_gap = (point2[0] - point1[0], point2[1] - point1[1])
     try:
-        print(str(point_gap))
         return freeman_code_dict[str(point_gap)]
     except KeyError:
         return
 
 
-def __get_freeman_code(freeman_coordination_list:[(int,int)]) -> [int]:
+def __get_freeman_code(freeman_coordination_list: [(int, int)]) -> [int]:
     """给定Freeman坐标，返回Freeman编码的结果
 
     :param freeman_coordination_list: List[(int,int)],Freman坐标组成的List
@@ -195,15 +198,12 @@ def __get_freeman_code(freeman_coordination_list:[(int,int)]) -> [int]:
 # 主函数
 # ============================================================
 
+def get_freeman_coordination(img:np.ndarray,contour:[(int,int)]) -> [int]:
+    """给定图像和对应的边界，返回Freeman对应的坐标
 
-def get_freeman_code(img: np.ndarray, contour: [
-                     (int, int)], mode=EIGHT_DIRECTION) -> [int]:
-    """给定图像和对应的边界，返回Freeman链码
-
-    :param img: numpy.ndarray,  图像
-    :param contour: List[(int,int)],边界的list
-    :param mode: int,编码方式，表示是按4方向编码还是按8方向编码
-    :return: [int], 弗雷曼链码
+    :param img: numpy.ndarray, 图像
+    :param contour: List[(int,int)],边界的List
+    :return: Freeman对应的坐标
     """
     freeman_coordination_list = list()  # 用于保存得出的Freeman链码坐标
     '''获取Freeman链码的网格坐标'''
@@ -224,11 +224,20 @@ def get_freeman_code(img: np.ndarray, contour: [
 
     '''添加最后一个点到第一个点的连线'''
     freeman_coordination_list.append(freeman_coordination_list[0])
+    return freeman_coordination_list
 
-    # return freeman_coordination_list
+
+def get_freeman_code(img: np.ndarray, contour: [
+                     (int, int)]) -> [int]:
+    """给定图像和对应的边界，返回Freeman链码
+
+    :param img: numpy.ndarray,  图像
+    :param contour: List[(int,int)],边界的list
+    :return: [int], 弗雷曼链码
+    """
+    freeman_coordination_list = get_freeman_coordination(img,contour)
     """验证得到的Freeman坐标是否正确"""
     assert __is_freeman_coordination_correct(freeman_coordination_list)
 
     """根据方向得到Freeman链码"""
     return __get_freeman_code(freeman_coordination_list)
-

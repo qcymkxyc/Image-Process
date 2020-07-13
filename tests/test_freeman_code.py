@@ -37,30 +37,52 @@ class FreemanTest(TestCase):
         self.img = Image.open(img_path)
         self.img = np.asarray(self.img)
 
+    def test_get_freeman_coordination_by_img(self):
+        import matplotlib.pyplot as plt
+        img_path = "../image_data/DIP3E_CH11_Original_Images/Fig1105(a)(noisy_stroke).tif"
+        img = Image.open(img_path)
+        img = np.asarray(img)
+
+        tmp_img = cv2.blur(img, (9, 9))
+        th, tmp_img = cv2.threshold(
+            tmp_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        image, contours, hierarchy = cv2.findContours(
+            tmp_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+        contour = contours[-1]
+        contour = np.reshape(contour, (contour.shape[0], contour.shape[-1]))
+        x = [i[0] for i in contour]
+        y = [i[1] for i in contour]
+        plt.plot(x, y)
+        plt.show()
+
+        a = freeman_code.get_freeman_coordination(tmp_img, contour)
+        x = [i[0] for i in a]
+        y = [i[1] for i in a]
+        plt.plot(x, y)
+        plt.show()
+
     def test_get_freeman_code(self):
         import matplotlib.pyplot as plt
         img_path = "../image_data/DIP3E_CH11_Original_Images/Fig1105(a)(noisy_stroke).tif"
         img = Image.open(img_path)
         img = np.asarray(img)
 
-        tmp_img = cv2.blur(img,(9,9))
-        th,tmp_img = cv2.threshold(tmp_img,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        image,contours,hierarchy = cv2.findContours(tmp_img,cv2.RETR_LIST,cv2.CHAIN_APPROX_NONE)
+        tmp_img = cv2.blur(img, (9, 9))
+        th, tmp_img = cv2.threshold(
+            tmp_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        image, contours, hierarchy = cv2.findContours(
+            tmp_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
         contour = contours[-1]
-        contour = np.reshape(contour,(contour.shape[0],contour.shape[-1]))
+        contour = np.reshape(contour, (contour.shape[0], contour.shape[-1]))
         x = [i[0] for i in contour]
         y = [i[1] for i in contour]
-        plt.plot(x,y)
+        plt.plot(x, y)
         plt.show()
 
-        a = freeman_code.get_freeman_code(tmp_img,contour)
+        a = freeman_code.get_freeman_code(tmp_img, contour)
         print(a)
-        # x = [i[0] for i in a]
-        # y = [i[1] for i in a]
-        # plt.plot(x,y)
-        # plt.show()
 
-    def test_get_freeman_coordination(self):
+    def test_get_freeman_coordination_by_point(self):
         freeman_x_list = np.arange(0, 100, 10).tolist()
         freeman_y_list = np.arange(0, 100, 10).tolist()
 
