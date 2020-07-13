@@ -12,8 +12,7 @@
 from unittest import TestCase
 import cv2
 import unittest
-from PIL import Image
-from src import freeman_code
+from src.chapter11 import freeman_code
 from PIL import Image
 import os
 import numpy as np

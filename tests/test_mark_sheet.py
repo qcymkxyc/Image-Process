@@ -11,7 +11,7 @@
 import unittest
 from PIL import Image
 import numpy as np
-from src import mark_sheet
+from src.chapter11 import mark_sheet
 
 
 class MarkSheetTestCase(unittest.TestCase):
