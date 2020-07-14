@@ -198,7 +198,7 @@ def __get_freeman_code(freeman_coordination_list: [(int, int)]) -> [int]:
 # 主函数
 # ============================================================
 
-def get_freeman_coordination(img:np.ndarray,contour:[(int,int)]) -> [int]:
+def get_freeman_coordination(img: np.ndarray, contour: [(int, int)]) -> [int]:
     """给定图像和对应的边界，返回Freeman对应的坐标
 
     :param img: numpy.ndarray, 图像
@@ -235,7 +235,7 @@ def get_freeman_code(img: np.ndarray, contour: [
     :param contour: List[(int,int)],边界的list
     :return: [int], 弗雷曼链码
     """
-    freeman_coordination_list = get_freeman_coordination(img,contour)
+    freeman_coordination_list = get_freeman_coordination(img, contour)
     """验证得到的Freeman坐标是否正确"""
     assert __is_freeman_coordination_correct(freeman_coordination_list)
 

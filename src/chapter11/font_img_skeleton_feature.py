@@ -16,10 +16,6 @@ import numpy as np
 from util import decorators
 from util import image_helper
 import pandas as pd
-from util.show_helper import draw_img
-from config import font_shape_model_config
-from util import data_helper
-
 
 @decorators.func_input_type_check()
 @decorators.func_output_type_check()
