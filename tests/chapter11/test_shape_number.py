@@ -20,9 +20,10 @@ def get_shape_number_by_freeman_difference(
     return shape_number.__get_shape_number_by_freeman_difference(freeman_difference_list)
 
 
-class MyTestCase(unittest.TestCase):
+class ShapeNumberTestCase(unittest.TestCase):
     def setUp(self) -> None:
         root, _ = os.path.split(os.getcwd())
+        root = os.path.split(root)[0]
         img_path = os.path.join(root, "image_data")
         img_path = os.path.join(
             img_path, r"DIP3E_CH11_Original_Images/Fig1105(a)(noisy_stroke).tif")

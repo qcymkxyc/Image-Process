@@ -10,7 +10,7 @@
 @Description    :
 """
 import numpy as np
-from . import freeman_code
+from src.chapter11 import freeman_code
 
 
 # =============================================================
