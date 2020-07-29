@@ -21,6 +21,12 @@ def get_rank_index(gray_value: int, rank_list: [int]) -> int:
     return texture.__get_rank_index(gray_value, rank_list)
 
 
+def get_occurrence_mean(occurrence_matrix,axis):
+    return texture.__get_occurrence_mean(occurrence_matrix,axis)
+
+def get_occurrence_variance(occurrence_matrix,axis):
+    return texture.__get_occurrence_variance(occurrence_matrix,axis)
+
 class TextureTestCase(unittest.TestCase):
     def test_get_rank_list(self):
         rank_list = get_rank_list(8)
@@ -45,6 +51,37 @@ class TextureTestCase(unittest.TestCase):
         img = np.random.randint(0, 255, size=(10, 10))
         occurrence_matrix = texture.get_co_occurrence_matrix(img)
         print(occurrence_matrix)
+
+    def test_get_mean(self):
+        occurrence_matrix = np.arange(16).reshape((4,4))
+        value = get_occurrence_mean(occurrence_matrix,axis = 0)
+        print(value)
+
+        value = get_occurrence_mean(occurrence_matrix, axis=1)
+        print(value)
+
+    def test_get_occurrence_variance(self):
+        occurrence_matrix = np.arange(16).reshape((4,4))
+        var_value = get_occurrence_variance(occurrence_matrix,axis = 0)
+        print(var_value)
+
+        var_value = get_occurrence_variance(occurrence_matrix,axis = 1)
+        print(var_value)
+
+    def test_get_correlation(self):
+        occurrence_matrix = np.arange(16).reshape((4,4))
+        occurrence_value = texture.get_correlation(occurrence_matrix)
+        print(occurrence_value)
+
+    def test_get_contrast(self):
+        occurrence_matrix = np.arange(16).reshape((4,4))
+        contrast_value = texture.get_contrast(occurrence_matrix)
+        print(contrast_value)
+
+    def test_get_entropy(self):
+        occurrence_matrix = np.arange(16).reshape((4, 4))
+        entropy_value = texture.get_entropy(occurrence_matrix)
+        print(entropy_value)
 
 
 if __name__ == '__main__':
