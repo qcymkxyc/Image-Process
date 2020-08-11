@@ -1,5 +1,5 @@
 # Image-Process
-冈萨雷斯版《数字图像处理实现》
+冈萨雷斯《数字图像处理》Python实现（第三版）
 
 个人技术博客：http://blog.zhangqi2019.top/
 
