@@ -62,19 +62,25 @@ def __get_rank_index(gray_value: int, rank_list: [int]) -> int:
 
 
 def __get_occurrence_matrix_by_rank_matrix(
-        rank_matrix: np.ndarray, gray_rank: int) -> np.ndarray:
-    """跟定一个等级矩阵，返回共生矩阵
+        rank_matrix: np.ndarray, gray_rank: int, n_step: int = 1) -> np.ndarray:
+    """跟定一个等级矩阵，返回共生矩阵，且会根据不同的跳数返回不同的共生矩阵
 
     :param rank_matrix: numpy.array, 等级矩阵
     :param gray_rank: int, 灰度等级
+    :param n_step: int, 跳数,默认为1，表示相邻的元素建立跳数
     :return: numpy.array, 共生矩阵
     """
+    if n_step < 1:
+        raise ValueError("跳数设定错误")
+    """初始化"""
     # 共生矩阵
     co_occurrence_matrix = np.zeros(shape=(gray_rank, gray_rank))
+
+    """计算共生矩阵"""
     for i_row in range(len(rank_matrix)):
-        for i_col in range(len(rank_matrix[0]) - 1):
+        for i_col in range(len(rank_matrix[0]) - n_step):
             current_value = rank_matrix[i_row][i_col]
-            next_value = rank_matrix[i_row][i_col + 1]
+            next_value = rank_matrix[i_row][i_col + n_step]
             co_occurrence_matrix[current_value][next_value] += 1
 
     return co_occurrence_matrix
@@ -159,6 +165,36 @@ def get_co_occurrence_matrix(
     return __get_occurrence_matrix_by_rank_matrix(
         rank_matrix=rank_matrix, gray_rank=gray_rank)
 
+
+def get_co_occurrence_correlation_seq(
+        img: np.ndarray, gray_rank: int = 8, start_step: int = 1, end_step: int = 50) -> list:
+    """
+
+    :param img: numpy.array, 图像
+    :param gray_rank: int,共生矩阵的等级数
+    :param start_step: int,开始跳数
+    :param end_step: int, 结束跳数
+    :return: list, 共生矩阵相关性序列
+    """
+    """获取等级矩阵"""
+    '''排序list'''
+    rank_list = __get_rank_list(gray_rank=gray_rank)
+    '''获取Rank矩阵'''
+    get_rank_matrix_f = np.frompyfunc(
+        lambda x: __get_rank_index(
+            x, rank_list), 1, 1)
+    rank_matrix = get_rank_matrix_f(img)
+
+    """计算共生矩阵的相关性"""
+    correlation_list = list()
+    for step in range(start_step, end_step):
+        occurrence_matrix = __get_occurrence_matrix_by_rank_matrix(
+            rank_matrix=rank_matrix, gray_rank=gray_rank, n_step=step)
+        correlation = get_correlation(occurrence_matrix)
+        correlation_list.append(correlation)
+    return correlation_list
+
+
 # ================================共生矩阵描述子=========================
 
 
@@ -180,17 +216,18 @@ def get_correlation(occurrence_matrix: np.ndarray) -> float:
     """概率矩阵"""
     prob_matrix = __get_probability_matrix(occurrence_matrix)
     """行平均以及列平均"""
-    row_mean = __get_occurrence_mean(occurrence_matrix,axis = 0)
-    col_mean = __get_occurrence_mean(occurrence_matrix,axis = 1)
+    row_mean = __get_occurrence_mean(occurrence_matrix, axis=0)
+    col_mean = __get_occurrence_mean(occurrence_matrix, axis=1)
     """行方差以及列方差"""
-    row_var = __get_occurrence_variance(occurrence_matrix,axis=0)
-    col_var = __get_occurrence_variance(occurrence_matrix,axis=1)
+    row_var = __get_occurrence_variance(occurrence_matrix, axis=0)
+    col_var = __get_occurrence_variance(occurrence_matrix, axis=1)
 
     """计算相关性"""
     correlation_value = 0.
     for i_row in range(len(prob_matrix)):
         for j_col in range(len(prob_matrix[0])):
-            tmp = (i_row + 1 - row_mean) * (j_col + 1 - col_mean) * prob_matrix[i_row][j_col]
+            tmp = (i_row + 1 - row_mean) * (j_col + 1 -
+                                            col_mean) * prob_matrix[i_row][j_col]
             tmp /= row_var * col_var
             correlation_value += tmp
     return correlation_value
@@ -207,12 +244,13 @@ def get_contrast(occurrence_matrix: np.ndarray) -> float:
     contrast_value = 0.
     for i_row in range(len(occurrence_matrix)):
         for j_col in range(len(occurrence_matrix[0])):
-            contrast_value += ((i_row + 1) - (j_col + 1)) ** 2 * prob_matrix[i_row][j_col]
+            contrast_value += ((i_row + 1) - (j_col + 1)
+                               ) ** 2 * prob_matrix[i_row][j_col]
 
     return contrast_value
 
 
-def get_consistency(occurrence_matrix: np.ndarray) -> float:
+def get_consistency(occurrence_matrix: np.ndarray) -> np.ndarray:
     """给定共生矩阵，返回一致性
 
     :param occurrence_matrix: numpy.array,共生矩阵
@@ -233,7 +271,8 @@ def get_homogeneity(occurrence_matrix: np.ndarray) -> float:
     homogeneity_value = 0.
     for i_row in range(len(prob_matrix)):
         for j_col in range(len(prob_matrix[0])):
-            tmp = prob_matrix[i_row][j_col] / (1 + abs((i_row + 1) - (j_col + 1)))
+            tmp = prob_matrix[i_row][j_col] / \
+                (1 + abs((i_row + 1) - (j_col + 1)))
             homogeneity_value += tmp
     return homogeneity_value
 
