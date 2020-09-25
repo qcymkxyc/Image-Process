@@ -10,6 +10,7 @@
 @Description    :
 """
 import numpy as np
+import logging
 
 
 def get_rank_moment(image: np.ndarray, row_moment: int,
@@ -89,20 +90,34 @@ def get_moment_invariants_seq(image: np.ndarray) -> list:
     :param image: numpy.array, 图片
     :return:
     """
-    moment_invariants_list = list()
 
     """计算归一化后的中心矩"""
     '''二阶'''
+    logging.info("正在计算二阶中心矩")
     moment20 = normal_center_moment(image, row_moment=2, col_moment=0)
     moment02 = normal_center_moment(image, row_moment=0, col_moment=2)
     moment11 = normal_center_moment(image, row_moment=1, col_moment=1)
     '''三阶'''
+    logging.info("正在计算三阶中心矩")
     moment03 = normal_center_moment(image, 0, 3)
     moment12 = normal_center_moment(image, 1, 2)
     moment21 = normal_center_moment(image, 2, 1)
     moment30 = normal_center_moment(image, 3, 0)
 
     """计算不变矩组"""
-    # TODO
-    num1 += normal_center_moment(image, row_moment=0, col_moment=2)
-    num2 = normal_center_moment()
+    logging.info("正在计算不变矩组")
+    num1 = moment02 + moment20
+    num2 = (moment02 - moment20) ** 2 + 4 * moment11 ** 2
+    num3 = (moment30 - 3 * moment12) ** 2 + (3 * moment21 - moment03) ** 2
+    num4 = (moment30 + moment12) ** 2 + (moment21 + moment03) ** 2
+    num5 = (moment30 - 3 * moment12) * (moment30 + moment12) * ((moment30 + moment12) ** 2 - 3 * (moment21 + moment03) ** 2) + \
+        (3 * moment21 - moment03) * (moment21 + moment03) * \
+        (3 * (moment30 - moment12) ** 2 - (moment21 - moment03) ** 2)
+    num6 = (moment20 - moment02) * ((moment30 + moment12) ** 2 - (moment21 + moment03)
+                                    ** 2) + 4 * moment11 * (moment30 + moment12) * (moment21 + moment03)
+    num7 = (3 * moment21 - moment03) * (moment30 + moment12) * ((moment30 + moment12) ** 2 - 3 * (moment21 + moment03) ** 2) + \
+        (3 * moment12 - moment03) * (moment21 + moment03) * \
+        (3 * (moment30 + moment12) ** 2 - (moment21 - moment03) ** 2)
+
+    moment_invariants_list = [num1, num2, num3, num4, num5, num6, num7]
+    return moment_invariants_list
