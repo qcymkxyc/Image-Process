@@ -32,21 +32,21 @@
 
 ## 第11章 表示和描述
 
-表示和描述的Demo实现见[这里](notebooks\图像表示与描述.ipynb)
+Demo汇总: [Demo汇总](./notebooks/图像表示与描述.ipynb)
 
-算法说明见:http://blog.zhangqi2019.top/posts/d4747641.html
+本章算法说明汇总:https://www.zhangqi2019.top/posts/d4747641.html/
 
 算法实现包括以下：
 
-### 表示 
+|                       | 实现源码                                         | Demo                                                         | 算法说明                                                     |
+| --------------------- | ------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Moore边界追踪         |                                                  |                                                              | [Moore说明](https://www.zhangqi2019.top/posts/d4747641.html/#%E8%BE%B9%E7%95%8C%E8%BF%BD%E8%B8%AA%EF%BC%88Moore%E8%BE%B9%E7%95%8C%E8%BF%BD%E8%B8%AA%EF%BC%89) |
+| Freeman链码           | [Freeman实现代码](src/chapter11/freeman_code.py) | [Freeman链码Demo](notebooks/图像表示与描述.ipynb#Freeman链码) | [Freeman链码](https://www.zhangqi2019.top/posts/d4747641.html/#%E9%93%BE%E7%A0%81) |
+| 标记图                | [标记图实现代码](src/chapter11/mark_sheet.py)    | [标记图Demo](notebooks/图像表示与描述.ipynb#标记图)          | [标记图](https://www.zhangqi2019.top/posts/d4747641.html/#%E9%93%BE%E7%A0%81) |
+| 骨架算法              | [骨架算法实现代码](src/chapter11/mat.py)         | [骨架算法Demo](notebooks/图像表示与描述.ipynb#骨架)          | [骨架](https://www.zhangqi2019.top/posts/d4747641.html/#%E9%AA%A8%E6%9E%B6) |
+| 形状数                | [形状数实现](src/chapter11/shape_number.py)      | [形状数Demo](notebooks/图像表示与描述.ipynb#形状数)          | [形状数](https://www.zhangqi2019.top/posts/d4747641.html/#%E5%BD%A2%E7%8A%B6%E6%95%B0) |
+| 灰度共生矩阵          | [灰度共生矩阵](src/chapter11/texture.py)         | [灰度共生矩阵Demo](notebooks/图像表示与描述.ipynb#灰度共生矩阵) |                                                              |
+| 灰度共生矩阵描述子    | [灰度共生矩阵描述子](src/chapter11/texture.py)   | [灰度共生矩阵描述子Demo](notebooks/图像表示与描述.ipynb#灰度共生矩阵描述子) |                                                              |
+| $n$步共生矩阵相关系数 | [n步共生矩阵相关系数](src/chapter11/texture.py)  | [灰度共生矩阵描述子Demo](notebooks/图像表示与描述.ipynb#n跳共生矩阵组成的序列图像) |                                                              |
+| 不变矩                | [不变矩](src\chapter11\moment_invariants.py)     | [不变矩Demo](notebooks/图像表示与描述.ipynb#不变矩)          |                                                              |
 
-* [Freeman链码的实现](src/chapter11/freeman_code.py)
-* [标记图](src/chapter11/mark_sheet.py)
-* [骨架算法](src/chapter11/mat.py)
-
-
-### 边界描述
-
-* [形状数](src/chapter11/shape_number.py)
-* [灰度共生矩阵](src/chapter11/texture.py)
-* 
