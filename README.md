@@ -21,11 +21,11 @@
 | 膨胀                  |                                            | [膨胀](notebooks/形态学ipynb#膨胀)                           | [膨胀](https://www.zhangqi2019.top/posts/c1f4dbab.html/#膨胀) |
 | 开操作                |                                            | [开操作](notebooks/形态学ipynb#开操作和闭操作)               | [开操作](https://www.zhangqi2019.top/posts/c1f4dbab.html/#开操作和闭操作) |
 | 闭操作                |                                            | [闭操作](notebooks/形态学ipynb#开操作和闭操作)               | [闭操作](https://www.zhangqi2019.top/posts/c1f4dbab.html/#开操作和闭操作) |
-| 击中以及不击中        | [击中和不击中](src\chapter9\morphology.py) | [击中以及不击中](notebooks/形态学ipynb#击中和不击中)         | [击中以及不击中](https://www.zhangqi2019.top/posts/c1f4dbab.html/#击中以及不击中) |
+| 击中以及不击中        | [击中和不击中](src/chapter9/morphology.py) | [击中以及不击中](notebooks/形态学ipynb#击中和不击中)         | [击中以及不击中](https://www.zhangqi2019.top/posts/c1f4dbab.html/#击中以及不击中) |
 | 边界提取              |                                            | [边界提取](notebooks/形态学ipynb#边界提取)                   | [边界提取](https://www.zhangqi2019.top/posts/c1f4dbab.html/#边界提取) |
-| 连通分量提取          | [连通分量提取](src\chapter9\morphology.py) | [连通分量提取](notebooks/形态学ipynb#连通分量提取)           | [连通分量提取](https://www.zhangqi2019.top/posts/c1f4dbab.html/#连通分量提取) |
-| 孔洞填充              | [孔洞填充](src\chapter9\morphology.py)     | [孔洞填充](notebooks/形态学ipynb#孔洞填充)                   | [孔洞填充](https://www.zhangqi2019.top/posts/c1f4dbab.html/#孔洞填充) |
-| 形态学重建-重建开操作 | [重建开操作](src\chapter9\morphology.py)   | [形态学重建 -重建开操作](notebooks/形态学.ipynb#重建开操作)  | [重建开操作](https://www.zhangqi2019.top/posts/c1f4dbab.html/#重建开操作) |
+| 连通分量提取          | [连通分量提取](src/chapter9/morphology.py) | [连通分量提取](notebooks/形态学ipynb#连通分量提取)           | [连通分量提取](https://www.zhangqi2019.top/posts/c1f4dbab.html/#连通分量提取) |
+| 孔洞填充              | [孔洞填充](src/chapter9/morphology.py)     | [孔洞填充](notebooks/形态学ipynb#孔洞填充)                   | [孔洞填充](https://www.zhangqi2019.top/posts/c1f4dbab.html/#孔洞填充) |
+| 形态学重建-重建开操作 | [重建开操作](src/chapter9/morphology.py)   | [形态学重建 -重建开操作](notebooks/形态学.ipynb#重建开操作)  | [重建开操作](https://www.zhangqi2019.top/posts/c1f4dbab.html/#重建开操作) |
 | 灰度形态学-灰度腐蚀   |                                            | [灰度级形态学- 灰度腐蚀](notebooks/形态学.ipynb#灰度腐蚀)    | [灰度腐蚀](https://www.zhangqi2019.top/posts/c1f4dbab.html/#灰度腐蚀) |
 | 灰度形态学-灰度膨胀   |                                            | [灰度级形态学-灰度膨胀](notebooks/形态学.ipynb#灰度膨胀)     | [灰度膨胀](https://www.zhangqi2019.top/posts/c1f4dbab.html/#灰度膨胀) |
 | 灰度形态学-灰度开操作 |                                            | [灰度级形态学-灰度开操作](notebooks/形态学.ipynb#灰度开操作) | [灰度开操作和闭操作](https://www.zhangqi2019.top/posts/c1f4dbab.html/#灰度开操作和闭操作) |
@@ -56,5 +56,5 @@ Demo汇总: [Demo汇总](./notebooks/图像表示与描述.ipynb)
 | 灰度共生矩阵          | [灰度共生矩阵](src/chapter11/texture.py)         | [灰度共生矩阵Demo](notebooks/图像表示与描述.ipynb#灰度共生矩阵) |                                                              |
 | 灰度共生矩阵描述子    | [灰度共生矩阵描述子](src/chapter11/texture.py)   | [灰度共生矩阵描述子Demo](notebooks/图像表示与描述.ipynb#灰度共生矩阵描述子) |                                                              |
 | $n$步共生矩阵相关系数 | [n步共生矩阵相关系数](src/chapter11/texture.py)  | [灰度共生矩阵描述子Demo](notebooks/图像表示与描述.ipynb#n跳共生矩阵组成的序列图像) |                                                              |
-| 不变矩                | [不变矩](src\chapter11\moment_invariants.py)     | [不变矩Demo](notebooks/图像表示与描述.ipynb#不变矩)          |                                                              |
+| 不变矩                | [不变矩](src/chapter11/moment_invariants.py)     | [不变矩Demo](notebooks/图像表示与描述.ipynb#不变矩)          |                                                              |
 
