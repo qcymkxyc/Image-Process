@@ -9,6 +9,8 @@
 
 个人技术博客：http://www.zhangqi2019.top/
 
+**本书预览地址：http://www.ailearndo.com/resource/数字图像处理(冈萨雷斯版).pdf**
+
 ## 第9章 形态学
 
 以下形态学的Demo说明见：http://www.zhangqi2019.top/posts/c1f4dbab.html/
