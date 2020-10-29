@@ -38,6 +38,11 @@
 
 ##  第10章 图像分割
 
+|            | 实现源码 | Demo                                                         | 算法说明                                                     |
+| ---------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 孤立点检测 |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [孤立点检测](https://www.zhangqi2019.top/posts/d2113c07.html/#more) |
+| 线检测     |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [线检测](https://www.zhangqi2019.top/posts/d2113c07.html/#more) |
+
 
 
 ## 第11章 表示和描述
