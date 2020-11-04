@@ -38,16 +38,17 @@
 
 ##  第10章 图像分割
 
-|            | 实现源码 | Demo                                                         | 算法说明                                                     |
-| ---------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 孤立点检测 |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [孤立点检测](https://www.zhangqi2019.top/posts/d2113c07.html/#more) |
-| 线检测     |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [线检测](https://www.zhangqi2019.top/posts/d2113c07.html/#more) |
+|                           | 实现源码 | Demo                                                         | 算法说明                                                     |
+| ------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 孤立点检测                |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [孤立点检测](https://www.zhangqi2019.top/posts/d2113c07.html/#孤立点检测) |
+| 线检测                    |          | [孤立点检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb) | [线检测](https://www.zhangqi2019.top/posts/d2113c07.html/#线检测) |
+| 简单边缘模型（Sobel检测） |          | [Sobel边缘检测](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2.ipynb#基本检测模型(Sobel)) | [Sobel边缘检测](https://www.zhangqi2019.top/posts/d2113c07.html/#基本的检测模型) |
 
 
 
 ## 第11章 表示和描述
 
-Demo汇总: [Demo汇总](./notebooks/图像表示与描述.ipynb)
+Demo汇总: [Demo汇总](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/图像表示与描述.ipynb)
 
 本章算法说明汇总:https://www.zhangqi2019.top/posts/d4747641.html/
 
