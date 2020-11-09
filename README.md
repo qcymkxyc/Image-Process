@@ -1,8 +1,6 @@
 # Image-Process
 闲暇之余对《数字图像处理》的实现，欢迎Star
 
-另附sklearn官网所有example在线演示：http://www.ailearndo.com
-
 ------
 
 冈萨雷斯《数字图像处理》Python实现（第三版）
