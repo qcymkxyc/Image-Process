@@ -9,6 +9,16 @@
 
 **本书预览地址：http://www.ailearndo.com/resource/数字图像处理(冈萨雷斯版).pdf**
 
+## 频率域滤波
+
+|              | 实现代码 | Demo                                                         | 算法说明 |
+| ------------ | -------- | ------------------------------------------------------------ | -------- |
+|              |          | [图像重取样](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#图像重取样) |          |
+| 傅里叶谱     |          | [傅里叶谱](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#傅里叶谱) |          |
+| 直通分量置零 |          | [直通分量置零](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#直流分量置0) |          |
+
+
+
 ## 第9章 形态学
 
 以下形态学的Demo说明见：http://www.zhangqi2019.top/posts/c1f4dbab.html/
