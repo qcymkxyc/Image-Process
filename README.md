@@ -9,6 +9,15 @@
 
 **本书预览地址：http://www.ailearndo.com/resource/数字图像处理(冈萨雷斯版).pdf**
 
+## 第3章 灰度变换与空间滤波
+
+|                | 实现代码 | Demo                                                         | 算法说明 |
+| -------------- | -------- | ------------------------------------------------------------ | -------- |
+| 局部直方图均衡 |          | [局部直方图均衡](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#图像重取样) |          |
+|                |          |                                                              |          |
+
+
+
 ## 第4章 频率域滤波
 
 |              | 实现代码 | Demo                                                         | 算法说明 |
