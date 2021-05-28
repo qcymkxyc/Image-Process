@@ -11,12 +11,10 @@
 
 ## 第3章 灰度变换与空间滤波
 
-|                | 实现代码 | Demo                                                         | 算法说明 |
-| -------------- | -------- | ------------------------------------------------------------ | -------- |
-| 局部直方图均衡 |          | [局部直方图均衡](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#图像重取样) |          |
-|                |          |                                                              |          |
-
-
+|                | 实现代码                                             | Demo                                                         | 算法说明 |
+| -------------- | ---------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| 局部直方图均衡 |                                                      | [局部直方图均衡](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2.ipynb#局部直方图均衡) |          |
+| 直方图局部增强 | [直方图局部增强](src/chapter3/hist_local_enhance.py) | [直方图局部增强](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2.ipynb#局部直方图增强) |          |
 
 ## 第4章 频率域滤波
 
