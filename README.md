@@ -18,6 +18,11 @@
 
 ## 第4章 频率域滤波
 
+频域章重在理解傅里叶变换和频域的思想，以下是对傅里叶和奈奎斯特定理的总结：
+
+* [傅里叶变换推导](https://www.zhangqi2019.top/posts/fb91b52c.html/)
+* [奈奎斯特定理推导](https://www.zhangqi2019.top/posts/88a0752c.html/)
+
 |              | 实现代码 | Demo                                                         | 算法说明 |
 | ------------ | -------- | ------------------------------------------------------------ | -------- |
 | 图像重取样   |          | [图像重取样](https://nbviewer.jupyter.org/github/qcymkxyc/Image-Process/blob/master/notebooks/%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2.ipynb#图像重取样) |          |
